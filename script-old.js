@@ -5,8 +5,7 @@ function computerPlay () {
 }
 
 function playerPlay () {
-    //const playerChoice = prompt ('Choose your element').toLocaleLowerCase()
-    const playerChoice = 'rock'
+    const playerChoice = prompt ('Choose your element').toLocaleLowerCase()
     return playerChoice
 }
 
