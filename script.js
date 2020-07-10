@@ -1,54 +1,125 @@
+//global dom defintions
+const rockIconEle = document.querySelector('.rock_icon');
+const paperIconEle = document.querySelector('.paper_icon');
+const scissorsIconEle = document.querySelector('.scissors_icon');
+const roundNumberEle = document.querySelector('.round_number');
+const playerScoreEle = document.querySelector('.player_score');
+const computerScoreEle = document.querySelector('.computer_score');
+const displayPlayerChoiceEle = document.querySelector('.display_player_choice')
+const displayComputerChoiceEle = document.querySelector('.display_computer_choice')
+
 function computerPlay () {
     const choices = ['rock','paper','scissors']
     const randomChoice = choices[Math.floor(choices.length * Math.random())];
     return randomChoice
 }
 
-function playerPlay () {
-    //const playerChoice = prompt ('Choose your element').toLocaleLowerCase()
+/*function playerPlay () {
     const playerChoice = 'rock'
     return playerChoice
-}
+}*/
 
-//const playerSelection = playerPlay()
-//const computerSelection = computerPlay()
 let playerScore = 0;
 let computerScore = 0; 
+let round = 0;
+let playerSelection = ''
 
 function playRound () {
-    const playerSelection = playerPlay()
+    //const playerSelection = playerPlay()
     const computerSelection = computerPlay()
 
     if (playerSelection == 'rock' && computerSelection == 'paper') {
         computerScore++
-        return 'You Lose! Paper beats Rock. Computer Wins. '
+        computerScoreEle.textContent = 'Computer Score: '+computerScore
+        displayPlayerChoiceEle.textContent = 'Player Choose: '+playerSelection
+        displayComputerChoiceEle.textContent = 'Computer Choose: '+computerSelection
+        //return 'You Lose! Paper beats Rock. Computer Wins. '
+
     } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
         playerScore++
-        return 'You Win! Rock beats Scissors. Player Wins '
+        playerScoreEle.textContent = 'Player Score: '+playerScore
+        displayPlayerChoiceEle.textContent = 'Player Choose: '+playerSelection
+        displayComputerChoiceEle.textContent = 'Computer Choose: '+computerSelection
+        //return 'You Win! Rock beats Scissors. Player Wins '
 
     } else if (playerSelection == 'paper' && computerSelection == 'rock') {
         playerScore++
-        return 'You Win! Paper beats Rock. Player Wins '
+        playerScoreEle.textContent = 'Player Score: '+playerScore
+        displayPlayerChoiceEle.textContent = 'Player Choose: '+playerSelection
+        displayComputerChoiceEle.textContent = 'Computer Choose: '+computerSelection
+        //return 'You Win! Paper beats Rock. Player Wins '
 
     } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
         computerScore++
-        return 'You Lose! Scissors beats Paper. Computer Wins '
+        computerScoreEle.textContent = 'Computer Score: '+computerScore
+        displayPlayerChoiceEle.textContent = 'Player Choose: '+playerSelection
+        displayComputerChoiceEle.textContent = 'Computer Choose: '+computerSelection
+        //return 'You Lose! Scissors beats Paper. Computer Wins '
 
     } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
         computerScore++
-        return 'You Lose! Rock beats Scissors. Computer Wins '
+        computerScoreEle.textContent = 'Computer Score: '+computerScore
+        displayPlayerChoiceEle.textContent = 'Player Choose: '+playerSelection
+        displayComputerChoiceEle.textContent = 'Computer Choose: '+computerSelection
+        //return 'You Lose! Rock beats Scissors. Computer Wins '
 
     } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
         playerScore++
-        return 'You Win! Scissors beats Paper. Player Wins '
+        playerScoreEle.textContent = 'Player Score: '+playerScore
+        displayPlayerChoiceEle.textContent = 'Player Choose: '+playerSelection
+        displayComputerChoiceEle.textContent = 'Computer Choose: '+computerSelection
+        //return 'You Win! Scissors beats Paper. Player Wins '
 
     } else if (playerSelection == computerSelection) {
-        return 'It\'s a tie! Both players choose '+playerSelection
+        displayPlayerChoiceEle.textContent = 'Player Choose: '+playerSelection+', It\'s a tie!' 
+        displayComputerChoiceEle.textContent = 'Computer Choose: '+computerSelection+', It\'s a tie!' 
+        //return 'It\'s a tie! Both players choose '+playerSelection
     }
 }
 
-//console.log(playRound(playerSelection, computerSelection))
+//apend element, insert "winner tag"
 
+function game () {
+    rockIconEle.addEventListener('click', () => {
+        playerSelection = 'rock'
+        round++
+        roundNumberEle.textContent = 'Round: '+round
+        playRound(playerSelection)
+        declareWinner ()
+    });
+    paperIconEle.addEventListener('click', () => {
+        playerSelection = 'paper'
+        round++
+        roundNumberEle.textContent = 'Round: '+round
+        playRound(playerSelection)
+        declareWinner ()
+    });
+    scissorsIconEle.addEventListener('click', () => {
+        playerSelection = 'scissors'
+        round++
+        roundNumberEle.textContent = 'Round: '+round
+        playRound(playerSelection)
+        declareWinner ()
+    });
+}
+
+function declareWinner () {
+    if (playerScore == 5 ) {
+        playerScoreEle.textContent = 'Player Score: Winner!'
+    } else if (computerScore == 5 ) {
+        computerScoreEle.textContent = 'Computer Score: Winner!'  
+    }
+}
+
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0; 
+    round = 0;
+}
+
+game()
+
+/*
 function game () {
     //play 5 founds 
     for (let i=0; i < 5; i++) {
@@ -67,3 +138,4 @@ function game () {
 }
 
 game()
+*/

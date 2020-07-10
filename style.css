@@ -8,8 +8,15 @@ h1 {
     justify-content: center;
     font-size: 50px;
     margin: 25px;
+    margin-top: 200px;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 .container {
@@ -17,11 +24,22 @@ h1 {
     justify-content: center;
 }
 
-.round {
+.round_number {
     display: flex;
     justify-content: center;
     font-size: 25px;
-    margin: 25px;
+    margin: 50px;
+}
+
+.players_choices {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.display_computer_choice {
+    padding-left: 30px;
+    padding-bottom: 50px;
 }
 
 .scoreboard {
@@ -30,6 +48,28 @@ h1 {
     font-size: 25px;
 }
 
+.computer_score {
+    padding-left: 30px;
+}
+
 .rock_icon, .paper_icon, .scissors_icon {
     cursor: pointer;
+    transition: transform .2s;
 }
+
+.paper_icon, .scissors_icon {
+    padding-left: 30px;
+}
+
+.scissors_icon:hover {
+    transform: scale(1.1); 
+}
+
+.paper_icon:hover {
+    transform: scale(1.1); 
+}
+
+.rock_icon:hover {
+    transform: scale(1.1); 
+}
+
