@@ -7,6 +7,7 @@ const playerScoreEle = document.querySelector('.player_score');
 const computerScoreEle = document.querySelector('.computer_score');
 const displayPlayerChoiceEle = document.querySelector('.display_player_choice')
 const displayComputerChoiceEle = document.querySelector('.display_computer_choice')
+const resetButtonEle = document.querySelector('.reset_game_button')
 
 function computerPlay () {
     const choices = ['rock','paper','scissors']
@@ -21,7 +22,7 @@ function computerPlay () {
 
 let playerScore = 0;
 let computerScore = 0; 
-let round = 0;
+let round = 1;
 let playerSelection = ''
 
 function playRound () {
@@ -113,12 +114,21 @@ function declareWinner () {
 
 game()
 
-/*
+
 function resetGame() {
-    playerScore = 0;
-    computerScore = 0; 
-    round = 0;
-}*/
+    resetButtonEle.addEventListener('click', () => {
+        playerScore = 0;
+        computerScore = 0; 
+        round = 0;
+        playerScoreEle.textContent = 'Player Score: 0'
+        computerScoreEle.textContent = 'Computer Score: 0'  
+        roundNumberEle.textContent = 'Round: 1'
+        displayPlayerChoiceEle.textContent = 'Player Choose: '
+        displayComputerChoiceEle.textContent = 'Computer Choose: '
+    })
+}
+
+resetGame()
 
 
 /*

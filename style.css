@@ -52,6 +52,22 @@ h2 {
     padding-left: 30px;
 }
 
+.reset_game_button {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+    color: #5F6368;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    margin: 11px 4px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
 .rock_icon, .paper_icon, .scissors_icon {
     cursor: pointer;
     transition: transform .2s;
