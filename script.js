@@ -111,13 +111,15 @@ function declareWinner () {
     }
 }
 
+game()
+
+/*
 function resetGame() {
     playerScore = 0;
     computerScore = 0; 
     round = 0;
-}
+}*/
 
-game()
 
 /*
 function game () {
